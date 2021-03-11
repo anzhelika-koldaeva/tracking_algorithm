@@ -22,6 +22,7 @@ INPUT:
         - SHAPE.length (length of a bacterium)
         - SHAPE.width (width of a bacterium)
         - SHAPE.orientation (orientation of a bacterium)
+    - dim = number of lanes 
 OUTPUT:
     - width per frame
     - length per frame
@@ -40,11 +41,13 @@ OUTPUT:
 """
 
 import numpy as np
-import matplotlib.pyplot as plt 
 import csv
 
 
-def tracking(nm_fl, dim):   #input files: "contour_nm_fl.csv" and "bacteria_nm_fl.csv"; input value dim = number of rows
+
+#for the test data nm_fl = '20200609_2'
+
+def tracking(nm_fl, dim):   #input files: "contour_nm_fl.csv" and "bacteria_nm_fl.csv"; input value dim = number of lanes
     print("Reading the files...")
 
     file_name_con = 'contour_'+nm_fl+'.csv'
@@ -199,7 +202,7 @@ def tracking(nm_fl, dim):   #input files: "contour_nm_fl.csv" and "bacteria_nm_f
     f.write("max_y_frames = "+str(max_y_frames)+ '\n')
     f.close()   
     
-    f = open("local_structure_modif_OUTPUT/"+nm_fl+"min_y.txt","w")
+    f = open(nm_fl+"min_y.txt","w")
     f.write("min_y = "+str(min_y)+ '\n')
     f.close()   
     
@@ -568,7 +571,7 @@ def tracking(nm_fl, dim):   #input files: "contour_nm_fl.csv" and "bacteria_nm_f
     
         local_str = []
         for j in range(len(name_centers_per_frame)):
-            print("local structure for j = "+str(j))
+            print("local structure for #frame = "+str(j))
             local_str.append([])
             for q in range(len(name_centers_per_frame[j])):
                 local_str[-1].append([])
