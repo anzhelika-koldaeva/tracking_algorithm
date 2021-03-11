@@ -9,7 +9,7 @@ DESCRIPTION:
     
     Function with the tracking algorithm for bacteria in a microchannel
 
-INPUT:
+INPUT (.csv):
     - the .csv "contour" file with the following columns
         - NAME.id (unique name of each bacterium)
         - POSITION (index of a frame)
@@ -23,19 +23,19 @@ INPUT:
         - SHAPE.width (width of a bacterium)
         - SHAPE.orientation (orientation of a bacterium)
     - dim = number of lanes 
-OUTPUT:
-    - width per frame
-    - length per frame
-    - orientation per frame
-    - centers x per frame
-    - centers y per frame
-    - contours per frame
-    - tracking names
-    - traces
-    - divisions ((x,y,z) coordinates of the mother cells)
-    - max_y_frames
-    - min_y_frames
-    - numb_uniq_exper
+OUTPUT (.txt):
+    - centers_x_per_frame (axial coordinates of bacteria centers on each frame)
+    - centers y per frame (vertical coordinates of bacteria centers on each frame)
+    - width_per_frame (widths of bacteria on each frame)
+    - length per frame (lengths of bacteria on each frame)
+    - orientation per frame (orientations of bacteria on each frame)
+    - contours per frame ((x,y) coordinates of bacteria contours on each frame)
+    - tracking names (the inherited name from the initial ancestor on the first frame)
+    - traces ((x,y,t) coordinates of progenities of each bacteria from the first frame)
+    - divisions ((x,y,t) coordinates of the mother cells)
+    - max_y_frames (max vertical coordinate among all bacteria)
+    - min_y_frames (min vertical coordinate among all bacteria)
+    - numb_uniq_exper (number of clonal populations in time)
     
 
 """
